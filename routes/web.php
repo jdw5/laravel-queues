@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UploadAvatarController;
 use App\Jobs\LogExample;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,9 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/upload', [UploadAvatarController::class, 'index'])->name('upload');
+Route::post('/upload', [UploadAvatarController::class, 'update'])->name('upload.upload');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
