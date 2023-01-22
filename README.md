@@ -24,4 +24,6 @@
 - Ensure Amazon SDK is installed via `composer require aws/aws-sdk-php`
 
 
-### SQS and S3 example
+### Email Queueing
+- `Mail::to($request->user())->send(new UserRegistered);`
+- Queue it by changing `send` to `queue`
