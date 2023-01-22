@@ -41,4 +41,9 @@ class UpdateLastLogin implements ShouldQueue
             'last_login' => $this->date
         ]);
     }
+
+    public function failed()
+    {
+        \Log::error('Could not update user');
+    }
 }
